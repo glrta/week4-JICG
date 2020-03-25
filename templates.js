@@ -23,12 +23,9 @@ function sharedContent(content) {
   `
 }
 
-function home(posts) {
-  return posts.map(post => {
+function home() {
     ``
-  }).join('\n')
-
-}
+  }
 
 
 function missing(){
@@ -36,8 +33,22 @@ function missing(){
 };
 
 function write(){
-
+  return sharedContent(`
+    <button onclick="home" class="back-button">Back</button>
+    <form action="/write" method="POST" class="form">
+      
+      <label for="name" class="form__label">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" class="form__input">
+      <br>
+      <label for="title" class="form__label">Post title</label>
+      <input type="text" id="title" name="title" placeholder="Blog title" class="form__input">
+      <br>
+      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body"></textarea>
+      <br>
+      <button type="submit" class="form__submit">Post!</button>
+    </form>
+  `)
 }
 
 
-module.exports = { home , missing, write}
+module.exports = { home, missing, write}
