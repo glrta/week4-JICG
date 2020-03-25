@@ -1,4 +1,4 @@
-const templates = require('./templates.js')
+const templates = require('./templates')
 
 const router = (req,res) => {
     const url = req.url;
@@ -16,7 +16,7 @@ const router = (req,res) => {
         req.on("end", () => {
             res.writeHead(302, {"content-type":"text/html"});
             res.end(templates.home());
-        }
+        });
     }
     else {
         res.writeHead(404, {"content-type" : "text/html"});
