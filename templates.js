@@ -24,17 +24,20 @@ function sharedContent(content) {
 }
 
 function home(posts) {
-  return posts.map(post => {
-    `<article class="post">
-    <h2 class="post__title">${post.title}</h2>
-    ${post.body.split('\n\n').map(p => `<p class="post__paragraph">${p}</p>`)}
-    <footer class="post__footer">
-        <p class="post__author"></p>${post.author}</p>
-        <p class="post__date">${post.date}</p>
-    </footer>
-</article>`
-  }).join('\n')
+  sharedContent(compileArticles(post))
+}
 
+function compileArticles(posts) {
+  return posts.map(post => {
+    return `<article class="post">
+        <h2 class="post__title">${post.title}</h2>
+        ${post.body.split('\n\n').map(p => `<p class="post__paragraph">${p}</p>`)}
+        <footer class="post__footer">
+            <p class="post__author"></p>${post.author}</p>
+            <p class="post__date">${post.date}</p>
+        </footer>
+    </article>`
+  }).join('\n')
 }
 
 
