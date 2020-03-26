@@ -4,15 +4,8 @@
   "description": "",
   "main": "app-test.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev" : "nodemon server.js"
-||||||| merged common ancestors
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
->>>>>>> 222d154ce88a70054feb1c3cbad476e8b7a60921
   },
   "author": "JICG",
   "license": "ISC",
