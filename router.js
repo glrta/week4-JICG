@@ -8,7 +8,7 @@ const router = (req, res) => {
   } else if (url === "/write" && req.method === "GET") {
     res.writeHead(200, { "content-type": "text/html" });
     res.end(templates.write());
-  } else if (url === "/submit" && req.method === "POST") {
+  } else if (url === "/write" && req.method === "POST") {
     let body = "";
     req.on("data", chunk => (body += chunk.toString()));
     req.on("end", () => {
