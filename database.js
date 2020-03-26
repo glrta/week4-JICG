@@ -1,3 +1,3 @@
 const posts = [];
 
-module.exports(posts);
+module.exports = posts;
