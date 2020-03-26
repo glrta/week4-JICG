@@ -38,7 +38,7 @@ function compileArticles() {
           .split("\n\n")
           .map(p => `<p class="post__paragraph">${p}</p>`)}
         <footer class="post__footer">
-            <p class="post__author"></p>${post.author}</p>
+            <p class="post__author">${post.author}</p>
             <p class="post__date">${post.date}</p>
         </footer>
     </article>`;
