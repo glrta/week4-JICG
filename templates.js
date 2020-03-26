@@ -1,4 +1,3 @@
-const posts = require("./database");
 const handlers = require("./handlers");
 
 function sharedContent(content, navButton) {
