@@ -8,7 +8,7 @@ function sharedContent(content, navButton) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Microblog</title>
-      <link href="week4-JICG/public/style.css" rel="stylesheet">
+      <link href="public/style.css" rel="stylesheet">
   </head>
   <body>
       <header>
@@ -21,7 +21,7 @@ function sharedContent(content, navButton) {
       <footer>
           <p>Copyright</p>
       </footer>
-      <script src="week4-JICG/public/script.js"></script>
+      <script src="public/script.js"></script>
   </body>
   </html>
   `;
