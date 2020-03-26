@@ -1,3 +1,5 @@
+const posts = require("./database");
+
 function sharedContent(content) {
   return `
   <!DOCTYPE html>
@@ -20,32 +22,35 @@ function sharedContent(content) {
       </footer>
   </body>
   </html>
-  `
+  `;
 }
 
-function home(posts) {
-  sharedContent(compileArticles(post))
+function home() {
+  sharedContent(compileArticles());
 }
 
-function compileArticles(posts) {
-  return posts.map(post => {
-    return `<article class="post">
+function compileArticles() {
+  return posts
+    .map(post => {
+      return `<article class="post">
         <h2 class="post__title">${post.title}</h2>
-        ${post.body.split('\n\n').map(p => `<p class="post__paragraph">${p}</p>`)}
+        ${post.body
+          .split("\n\n")
+          .map(p => `<p class="post__paragraph">${p}</p>`)}
         <footer class="post__footer">
             <p class="post__author"></p>${post.author}</p>
             <p class="post__date">${post.date}</p>
         </footer>
-    </article>`
-  }).join('\n')
+    </article>`;
+    })
+    .join("\n");
 }
 
+function missing() {
+  return sharedContent(`<h2>404 content not found</h2>`);
+}
 
-function missing(){
-  return sharedContent(`<h2>404 content not found</h2>`)
-};
-
-function write(){
+function write() {
   return sharedContent(`
     <button onclick="home" class="back-button">Back</button>
     <form action="/write" method="POST" class="form">
@@ -60,8 +65,7 @@ function write(){
       <br>
       <button type="submit" class="form__submit">Post!</button>
     </form>
-  `)
+  `);
 }
 
-
-module.exports = { home, missing, write}
+module.exports = { home, missing, write };
