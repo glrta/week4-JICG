@@ -28,7 +28,7 @@ function sharedContent(content, navButton) {
 }
 
 function home() {
-  return sharedContent(compileArticles(), `<a href="/write">Write a post</a>`);
+  return sharedContent(compileArticles(), `<a href="/write" class="nav-button">Write a post</a>`);
 }
 
 function compileArticles() {
@@ -52,7 +52,7 @@ function missing() {
   return sharedContent(`
   <h2>Whoops</h2>
   <img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif" alt="error-image">
-  <p>Please feel free to go home.</p>`, `<a href="/">Home</a>`);
+  <p>Please feel free to go home.</p>`, `<a href="/" class="nav-button">Home</a>`);
 }
 
 function write() {
@@ -69,7 +69,7 @@ function write() {
       <br>
       <button type="submit" class="form__submit">Post!</button>
     </form>
-  `,`<a href="/">Back</a>`);
+  `,`<a href="/" class="nav-button">Back</a>`);
 }
 
 module.exports = { home, missing, write };
