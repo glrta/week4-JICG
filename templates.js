@@ -24,7 +24,7 @@ function sharedContent(content) {
 }
 
 function home(posts) {
-  sharedContent(compileArticles(post))
+  sharedContent(compileArticles(posts))
 }
 
 function compileArticles(posts) {

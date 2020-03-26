@@ -1,4 +1,5 @@
-const templates = require('./templates')
+const templates = require('./templates');
+const postHandler = require("./handlers");
 
 const router = (req,res) => {
     const url = req.url;
@@ -11,12 +12,7 @@ const router = (req,res) => {
         res.end(templates.write());
     }
     else if (url === "/submit" && req.method === "POST"){
-        let body = "";
-        req.on("data", chunk => data += chunk)
-        req.on("end", () => {
-            res.writeHead(302, {"content-type":"text/html"});
-            res.end(templates.home());
-        });
+       postHandler(request, response);
     }
     else {
         res.writeHead(404, {"content-type" : "text/html"});
