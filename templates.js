@@ -1,4 +1,3 @@
-const posts = require("./database");
 const handlers = require("./handlers");
 
 function sharedContent(content, navButton) {
@@ -9,7 +8,7 @@ function sharedContent(content, navButton) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Microblog</title>
-      <link href="/public/style.css" rel="stylesheet">
+      <link href="week4-JICG/public/style.css" rel="stylesheet">
   </head>
   <body>
       <header>
@@ -22,6 +21,7 @@ function sharedContent(content, navButton) {
       <footer>
           <p>Copyright</p>
       </footer>
+      <script src="week4-JICG/public/script.js"></script>
   </body>
   </html>
   `;
@@ -34,15 +34,21 @@ function home() {
 function compileArticles() {
   return handlers.posts
     .map(post => {
-      return `<article class="post">
-        <h2 class="post__title">${post.title}</h2>
-        ${post.body
-          .split("\n\n")
-          .map(p => `<p class="post__paragraph">${p}</p>`)}
-        <footer class="post__footer">
+      return `
+      <article class="post">  
+        <div class="post__header"> 
+            <h2 class="post__title">${post.title}</h2>
             <p class="post__author">${post.name}</p>
+        </div>
+        <div <class="post__body">
+          ${post.body
+            .split("\n\n")
+            .map(p => `<p class="post__paragraph">${p}</p>`)}
+        </div>
+        <div class="post__footer">
             <p class="post__date">${post.date}</p>
-        </footer>
+            <button href="/" class="post__delete" aria-label="delete post ${post.title}">Delete</button>
+        </div>
     </article>`;
     })
     .join("\n");
