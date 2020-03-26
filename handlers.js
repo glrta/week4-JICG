@@ -10,8 +10,7 @@ function postHandler(req, res){
         const postObject = Object.fromEntries(blogPost); 
         const date = new Date();
         postObject.date = date.toLocaleTimeString('en-GB', options) 
-        posts.push(postObject)
-        console.log(posts)
+        posts.unshift(postObject)
         res.writeHead(302, {"content-type":"text/html", location: '/'});
         res.end();
     });
