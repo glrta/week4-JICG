@@ -1,4 +1,5 @@
 const posts = require("./database");
+const handlers = require("./handlers");
 
 function sharedContent(content, navButton) {
   return `
@@ -31,7 +32,7 @@ function home() {
 }
 
 function compileArticles() {
-  return posts
+  return handlers.posts
     .map(post => {
       return `<article class="post">
         <h2 class="post__title">${post.title}</h2>
@@ -39,7 +40,7 @@ function compileArticles() {
           .split("\n\n")
           .map(p => `<p class="post__paragraph">${p}</p>`)}
         <footer class="post__footer">
-            <p class="post__author">${post.author}</p>
+            <p class="post__author">${post.name}</p>
             <p class="post__date">${post.date}</p>
         </footer>
     </article>`;

@@ -1,4 +1,5 @@
 const templates = require("./templates");
+const handlers = require("./handlers");
 
 const router = (req, res) => {
   const url = req.url;
@@ -9,13 +10,9 @@ const router = (req, res) => {
     res.writeHead(200, { "content-type": "text/html" });
     res.end(templates.write());
   } else if (url === "/write" && req.method === "POST") {
-    let body = "";
-    req.on("data", chunk => (body += chunk.toString()));
-    req.on("end", () => {
-      res.writeHead(302, { "content-type": "text/html" });
-      res.end(templates.home());
-    });
-  } else {
+        handlers.postHandler(req, res);
+
+    } else {
     res.writeHead(404, { "content-type": "text/html" });
     res.end(templates.missing());
   }
