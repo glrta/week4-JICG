@@ -26,7 +26,7 @@ function sharedContent(content) {
 }
 
 function home() {
-  sharedContent(compileArticles());
+  return sharedContent(compileArticles());
 }
 
 function compileArticles() {
