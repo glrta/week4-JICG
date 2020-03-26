@@ -1,15 +1,26 @@
-const posts = []
+const posts = [];
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-const postHandler = (req, res) => {
+function postHandler(req, res){
     let body = "";
-    req.on("data", chunk => data += chunk)
+    req.on("data", chunk => { body += chunk
+    });
     req.on("end", () => {
         const blogPost = new URLSearchParams(body)
-        console.log(blogPost)
-        res.writeHead(302, {"content-type":"text/html"});
-        res.end(templates.home());
-});
-
-
+        const postObject = Object.fromEntries(blogPost); 
+        const date = new Date();
+        postObject.date = date.toLocaleTimeString('en-GB', options) 
+        posts.push(postObject)
+        console.log(posts)
+        res.writeHead(302, {"content-type":"text/html", location: '/'});
+        res.end();
+    });
+    req.on('error', err => {
+      console.log(err)
+    })
 }
-module.exports = postHandler;
+
+
+
+module.exports = { postHandler, posts }
+
