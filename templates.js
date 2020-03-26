@@ -1,6 +1,6 @@
 const posts = require("./database");
 
-function sharedContent(content) {
+function sharedContent(content, navButton) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -13,6 +13,7 @@ function sharedContent(content) {
   <body>
       <header>
           <h1>Microblogger</h1>
+          <nav>${navButton}</nav>
       </header>
       <main>
           ${content}
@@ -26,7 +27,7 @@ function sharedContent(content) {
 }
 
 function home() {
-  return sharedContent(compileArticles());
+  return sharedContent(compileArticles(), `<a href="/write">Write a post</a>`);
 }
 
 function compileArticles() {
@@ -47,12 +48,14 @@ function compileArticles() {
 }
 
 function missing() {
-  return sharedContent(`<h2>404 content not found</h2>`);
+  return sharedContent(`
+  <h2>Whoops</h2>
+  <img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif" alt="error-image">
+  <p>Please feel free to go home.</p>`, `<a href="/">Home</a>`);
 }
 
 function write() {
   return sharedContent(`
-    <button onclick="home" class="back-button">Back</button>
     <form action="/write" method="POST" class="form">
       
       <label for="name" class="form__label">Name</label>
@@ -65,7 +68,7 @@ function write() {
       <br>
       <button type="submit" class="form__submit">Post!</button>
     </form>
-  `);
+  `,`<a href="/">Back</a>`);
 }
 
 module.exports = { home, missing, write };
