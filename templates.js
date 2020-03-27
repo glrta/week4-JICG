@@ -28,7 +28,10 @@ function sharedContent(content, navButton) {
 }
 
 function home() {
-  return sharedContent(compileArticles(), `<a href="/write" class="nav-button">Write a post</a>`);
+  return sharedContent(
+    compileArticles(),
+    `<a href="/write" class="nav-button">Write a post</a>`
+  );
 }
 
 function compileArticles() {
@@ -47,7 +50,9 @@ function compileArticles() {
         </div>
         <div class="post__footer">
             <p class="post__date">${post.date}</p>
-            <button href="/" class="post__delete" aria-label="delete post ${post.title}">Delete</button>
+            <button href="/" class="post__delete" aria-label="delete post ${
+              post.title
+            }">Delete</button>
         </div>
     </article>`;
     })
@@ -55,27 +60,33 @@ function compileArticles() {
 }
 
 function missing() {
-  return sharedContent(`
+  return sharedContent(
+    `
   <h2>Whoops</h2>
   <img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif" alt="error-image">
-  <p>Please feel free to go home.</p>`, `<a href="/" class="nav-button">Home</a>`);
+  <p>Please feel free to go home.</p>`,
+    `<a href="/" class="nav-button">Home</a>`
+  );
 }
 
 function write() {
-  return sharedContent(`
+  return sharedContent(
+    `
     <form action="/write" method="POST" class="form">
       
       <label for="name" class="form__label">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" class="form__input">
+      <input type="text" id="name" name="name" placeholder="Your name" class="form__input" required>
       <br>
       <label for="title" class="form__label">Post title</label>
-      <input type="text" id="title" name="title" placeholder="Blog title" class="form__input">
+      <input type="text" id="title" name="title" placeholder="Blog title" class="form__input" required>
       <br>
-      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body"></textarea>
+      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body" required></textarea>
       <br>
       <button type="submit" class="form__submit">Post!</button>
     </form>
-  `,`<a href="/" class="nav-button">Back</a>`);
+  `,
+    `<a href="/" class="nav-button">Back</a>`
+  );
 }
 
 module.exports = { home, missing, write };
