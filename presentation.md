@@ -38,9 +38,6 @@
 
 #### Jitsi
 
-
-![jitsi](https://i.imgur.com/2Ehkafh.jpg)
-
 ---
 
 - Our own names for rooms allowed easy communication between pairs
