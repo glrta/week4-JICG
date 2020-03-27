@@ -10,6 +10,14 @@ __Note__: we aren't expecting the data to persist when the server restarts.
 
 __Stretch goal__: the user can delete posts.
 
+## Download our project
+To download the project:
+
+ - Clone the project
+ - Run `npm install` to setup package dependencies
+ - Run `npm test` to run the tests
+
+
 ## Features :tada:
 - add posts
 - see the posts of other users
