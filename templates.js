@@ -7,19 +7,20 @@ function sharedContent(content, navButton) {
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Microblog</title>
+      <title>Never stop PICKing</title>
+      <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
       <link href="public/style.css" rel="stylesheet">
   </head>
   <body>
       <header>
-          <h1>Microblogger</h1>
+          <h1>PICK your brains</h1>
           <nav>${navButton}</nav>
       </header>
       <main>
           ${content}
       </main>
       <footer>
-          <p>Copyright</p>
+          <p>PICK Corporation, Copyright 2020</p>
       </footer>
       <script src="public/script.js"></script>
   </body>
@@ -60,28 +61,25 @@ function compileArticles() {
 }
 
 function missing() {
-  return sharedContent(
-    `
-  <h2>Whoops</h2>
-  <img src="https://media.giphy.com/media/13d2jHlSlxklVe/giphy.gif" alt="error-image">
-  <p>Please feel free to go home.</p>`,
-    `<a href="/" class="nav-button">Home</a>`
-  );
+  return sharedContent(`
+  <article>
+  <h2 class="error__title">Whoops</h2>
+  <img src="https://media.giphy.com/media/Yl5aO3gdVfsQ0/giphy.gif" alt="error-image" class="error__image">
+  <p class="error__text">Please feel free to go home.</p>`, `<a href="/" class="nav-button">Home</a>
+  </article>`);
 }
 
 function write() {
   return sharedContent(
     `
     <form action="/write" method="POST" class="form">
-      
       <label for="name" class="form__label">Name</label>
       <input type="text" id="name" name="name" placeholder="Your name" class="form__input" required>
-      <br>
       <label for="title" class="form__label">Post title</label>
       <input type="text" id="title" name="title" placeholder="Blog title" class="form__input" required>
-      <br>
+      
       <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body" required></textarea>
-      <br>
+      
       <button type="submit" class="form__submit">Post!</button>
     </form>
   `,
