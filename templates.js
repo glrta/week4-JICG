@@ -29,7 +29,10 @@ function sharedContent(content, navButton) {
 }
 
 function home() {
-  return sharedContent(compileArticles(), `<a href="/write" class="nav-button">Write a post</a>`);
+  return sharedContent(
+    compileArticles(),
+    `<a href="/write" class="nav-button">Write a post</a>`
+  );
 }
 
 function compileArticles() {
@@ -48,7 +51,9 @@ function compileArticles() {
         </div>
         <div class="post__footer">
             <p class="post__date">${post.date}</p>
-            <button href="/" class="post__delete" aria-label="delete post ${post.title}">Delete</button>
+            <button href="/" class="post__delete" aria-label="delete post ${
+              post.title
+            }">Delete</button>
         </div>
     </article>`;
     })
@@ -65,19 +70,21 @@ function missing() {
 }
 
 function write() {
-  return sharedContent(`
+  return sharedContent(
+    `
     <form action="/write" method="POST" class="form">
       <label for="name" class="form__label">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" class="form__input">
-      
+      <input type="text" id="name" name="name" placeholder="Your name" class="form__input" required>
       <label for="title" class="form__label">Post title</label>
-      <input type="text" id="title" name="title" placeholder="Post title" class="form__input">
+      <input type="text" id="title" name="title" placeholder="Blog title" class="form__input" required>
       
-      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Tell us your story in under 500 characters..." aria-label="write blog here" class="form__body"></textarea>
+      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body" required></textarea>
       
       <button type="submit" class="form__submit">Post!</button>
     </form>
-  `,`<a href="/" class="nav-button">Back</a>`);
+  `,
+    `<a href="/" class="nav-button">Back</a>`
+  );
 }
 
 module.exports = { home, missing, write };
