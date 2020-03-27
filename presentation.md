@@ -169,3 +169,55 @@ const postObj = Object.fromEntries(blogPost);
 ### Questions?
 
 ![Questionsgiphy](https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif)
+
+---
+
+# SGC
+
+
+## Stop
+- 
+
+## Go
+- Review Estimates -> Actual
+- Simple CSS asap, e.g. basic styling based on HTML template
+- Exploring other people's approaches to solving a problem
+- End liveshare sessions for git mergegg
+
+## Continue
+- Being awesome
+- Jumping into rooms/checking in and asking questions
+- using Miro and Jitsi as a group beforhand
+- making clear issues to work within the parameters of
+- Great code review
+
+---
+
+## minutes
+### Go
+#### Actuals
+Gio - will be helpful to do this for future
+Ivo - when we close issues
+
+### Simple CSS
+Jack: Make basic CSS right from the get go so at least it's usable if we don't have time
+Everyone: Good idea
+
+### Exploring other people's approaches
+Jack: Interesting to see how other people would figure something out
+Everyone: Good idea
+
+### Liveshare merge conflicts
+Ivo: Exit liveshare to avoid merge conflicts
+
+
+## Continue
+#### Being awesome
+Ivo: We worked really well as a team this week.
+Everyone: Yeah, great job everyone!
+
+#### Jitsi and Miro
+Chloe: Really helped our communication and be on the same page
+
+#### Great code review
+
