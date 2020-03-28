@@ -62,11 +62,11 @@ function compileArticles() {
 
 function missing() {
   return sharedContent(`
-  <article>
+  <section>
   <h2 class="error__title">Whoops</h2>
   <img src="https://media.giphy.com/media/Yl5aO3gdVfsQ0/giphy.gif" alt="error-image" class="error__image">
   <p class="error__text">Please feel free to go home.</p>`, `<a href="/" class="nav-button">Home</a>
-  </article>`);
+  </section>`);
 }
 
 function write() {
@@ -78,7 +78,7 @@ function write() {
       <label for="title" class="form__label">Post title</label>
       <input type="text" id="title" name="title" placeholder="Blog title" class="form__input" required>
       
-      <textarea rows='20' cols='30' maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body" required></textarea>
+      <textarea maxlength="500" id="body" name="body" placeholder="Write us a story..." aria-label="write blog here" class="form__body" required></textarea>
       
       <button type="submit" class="form__submit">Post!</button>
     </form>
