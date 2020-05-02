@@ -4,6 +4,10 @@ At [Founders and Coders](https://www.foundersandcoders.com/about/) coding bootca
 
 __Week 4 topic__: Node
 
+See [week 4 schedule](https://founders-and-coders.gitbook.io/coursebook/week-4/schedule).
+
+---
+
 # Microblogger
 
 [Microblog project](https://serene-peak-45045.herokuapp.com/) built during Founders and Coders week 4 focused on Node.js.
